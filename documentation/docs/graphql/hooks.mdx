@@ -353,7 +353,7 @@ interface UpdatedBy {
 }
 
 @Injectable()
-export class UpdatedByHook<T extends UpdatedBy> implements BeforeUpdateManyHook<T, GqlContext> {
+export class UpdatedByHook<T extends UpdatedBy> implements BeforeUpdateManyHook<T, T, GqlContext> {
   constructor(readonly authService: AuthService) {}
 
   async run(instance: UpdateManyInputType<T, T>, context: GqlContext): Promise<UpdateManyInputType<T, T>> {
